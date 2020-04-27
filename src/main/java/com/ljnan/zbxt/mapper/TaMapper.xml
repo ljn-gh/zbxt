@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ljnan.zbxt.mapper.TaMapper" >
+  <resultMap id="BaseResultMap" type="com.ljnan.zbxt.model.Ta" >
+    <id column="bh" property="bh" jdbcType="CHAR" />
+    <result column="xm" property="xm" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    bh, xm
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ta
+    where bh = #{bh,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ta
+    where bh = #{bh,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ljnan.zbxt.model.Ta" >
+    insert into ta (bh, xm)
+    values (#{bh,jdbcType=CHAR}, #{xm,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ljnan.zbxt.model.Ta" >
+    insert into ta
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="bh != null" >
+        bh,
+      </if>
+      <if test="xm != null" >
+        xm,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="bh != null" >
+        #{bh,jdbcType=CHAR},
+      </if>
+      <if test="xm != null" >
+        #{xm,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ljnan.zbxt.model.Ta" >
+    update ta
+    <set >
+      <if test="xm != null" >
+        xm = #{xm,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where bh = #{bh,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ljnan.zbxt.model.Ta" >
+    update ta
+    set xm = #{xm,jdbcType=VARCHAR}
+    where bh = #{bh,jdbcType=CHAR}
+  </update>
+</mapper>

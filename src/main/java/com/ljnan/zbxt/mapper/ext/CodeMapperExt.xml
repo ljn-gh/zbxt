@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ljnan.zbxt.mapper.ext.CodeMapperExt">
+    <resultMap id="BaseResultMap" type="com.ljnan.zbxt.model.Code">
+        <result property="code" column="code" jdbcType="VARCHAR"></result>
+        <result property="pid" column="pid" jdbcType="VARCHAR"></result>
+        <result property="name" column="name" jdbcType="VARCHAR"></result>
+    </resultMap>
+
+    <select id="getCodeList" resultMap="BaseResultMap">
+        select pid,code,name
+        from code
+    </select>
+</mapper>
