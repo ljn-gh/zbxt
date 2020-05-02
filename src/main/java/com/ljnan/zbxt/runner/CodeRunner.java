@@ -10,6 +10,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 /**
+ * 单值代码加载
  * @author lijianan
  * @date 2020-04-21 18:12
  * 
