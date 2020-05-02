@@ -9,4 +9,8 @@ class LoginControllerTest {
     public static void main(String[] args) {
         System.out.println("这是测试");
     }
+    
+    public void ni() {
+        System.out.println("sss");
+    }
 }

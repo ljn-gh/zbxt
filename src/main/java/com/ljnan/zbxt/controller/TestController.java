@@ -22,7 +22,7 @@ public class TestController {
     private TestService testService;
 
     @GetMapping("/index")
-    @ApiOperation(value="测试",httpMethod = "GET")
+    @ApiOperation(value = "测试", httpMethod = "GET")
     public String index() {
         System.out.println(Arrays.toString(testService.getCodeList().toArray()));
         return null;
