@@ -1,5 +1,7 @@
-package com.example.demo.controller;
+package com.ljnan.zbxt.controller;
 
+import com.ljnan.zbxt.model.LombokTest;
+import com.ljnan.zbxt.model.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -23,6 +25,14 @@ public class LoginController {
     @RequestMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
+        Student student = new Student();
+        student.setSno("");
+        student.setSname("");
+        student.setCno(0);
+        System.out.println(student.toString());
+        LombokTest lombokTest = new LombokTest();
+        lombokTest.setLom("sdf");
         return "redirect:http://localhost:9999/cas/logout?service=http://localhost:9999/cas";
+        
     }
 }
